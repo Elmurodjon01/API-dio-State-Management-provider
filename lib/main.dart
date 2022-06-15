@@ -19,6 +19,4 @@ class MyApp extends StatelessWidget {
       home: GamePage(),
     );
   }
-
-
 }
