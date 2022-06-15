@@ -33,4 +33,11 @@ class GamePageProvider extends ChangeNotifier {
   String getCurrenQuestionText(){
     return questions![currentQuestionCount]['question'];
   }
+
+  void answerQuestion(String _answer) async {
+    bool isCorrect = questions![currentQuestionCount]['correct_answer'] == _answer;
+    currentQuestionCount++;
+    print(isCorrect ? 'Correct' : 'Incorrect');
+    notifyListeners();
+  }
 }

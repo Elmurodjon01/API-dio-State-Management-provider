@@ -74,7 +74,9 @@ class GamePage extends StatelessWidget {
 
   Widget trueButton() {
     return MaterialButton(
-      onPressed: () {},
+      onPressed: () {
+        pageProvider?.answerQuestion('True');
+      },
       color: Colors.green,
       minWidth: deviceWidth! * 0.80,
       height: deviceHeight! * 0.10,
@@ -87,7 +89,9 @@ class GamePage extends StatelessWidget {
 
   Widget falseButton() {
     return MaterialButton(
-      onPressed: () {},
+      onPressed: () {
+        pageProvider?.answerQuestion('False');
+      },
       color: Colors.red,
       minWidth: deviceWidth! * 0.80,
       height: deviceHeight! * 0.10,
