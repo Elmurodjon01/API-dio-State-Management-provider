@@ -75,6 +75,7 @@ class GamePageProvider extends ChangeNotifier {
           ),
           content: Text('Score: 0/0'),
         );
+
       },
     );
     await Future.delayed(
