@@ -15,30 +15,40 @@ class _StartingScreenState extends State<StartingScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const Text(
-              'Frivia',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 35.0,
-                  fontWeight: FontWeight.w500),
+            Column(
+              children:const[
+               Text(
+                  'Frivia',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 35.0,
+                      fontWeight: FontWeight.w500),
+                ),
+                 Text(
+                  'Easy',
+                  style: TextStyle(fontSize: 15, color: Colors.white),
+                ),
+              ],
             ),
-            const Text(
-              'Easy',
-              style: TextStyle(fontSize: 15, color: Colors.white),
-            ),
-            Slider(
-              divisions: 2,
-              value: dvalue,
-              onChanged: (double newValue) {
-                setState(
-                  () {
-                    newValue = dvalue;
-                  },
-                );
-              },
+
+            Container(
+              padding: EdgeInsets.only(left: 30, right: 30),
+              child: Slider(
+                divisions: 2,
+                value: dvalue,
+                onChanged: (double newValue) {
+                  setState(
+                    () {
+                      newValue = dvalue;
+                    },
+                  );
+                },
+              ),
             ),
             MaterialButton(
-              color: Colors.green,
+              height: 80,
+              minWidth: 300,
+              color: Colors.blue,
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(

@@ -6,7 +6,7 @@ import 'package:dio/dio.dart';
 class GamePageProvider extends ChangeNotifier {
   final Dio dio = Dio();
   final int maxQuestions = 10;
-
+  int correctCount = 0;
   List? questions;
   int currentQuestionCount = 0;
   BuildContext context;
@@ -37,6 +37,7 @@ class GamePageProvider extends ChangeNotifier {
   void answerQuestion(String _answer) async {
     bool isCorrect =
         questions![currentQuestionCount]['correct_answer'] == _answer;
+    correctCount += isCorrect ? 1 : 0;
     currentQuestionCount++;
     showDialog(
       context: context,
@@ -67,13 +68,13 @@ class GamePageProvider extends ChangeNotifier {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return const AlertDialog(
+        return  AlertDialog(
           backgroundColor: Colors.blue,
-          title: Text(
+          title:const Text(
             'Game Ended!',
             style: TextStyle(color: Colors.white, fontSize: 25),
           ),
-          content: Text('Score: 0/0'),
+          content: Text('Score: $correctCount/$maxQuestions'),
         );
 
       },
